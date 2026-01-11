@@ -1,6 +1,7 @@
 package lojaaguiar.com.br.lojaaguiar.config;
 
 
+import com.nimbusds.jose.jwk.JWK;
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
@@ -59,7 +60,7 @@ public class SecurityConfig {
 
     @Bean
     JwtEncoder jwtEncoder() {
-        JWT jwt = new RSAKey.Builder(this.key).privateKey(this.priv).build();
+        JWK jwk = new RSAKey.Builder(this.key).privateKey(this.priv).build();
         JWKSource<SecurityContext> jwts = new ImmutableJWKSet<>(new JWKSet());
         return new NimbusJwtEncoder(jwts);
     }
