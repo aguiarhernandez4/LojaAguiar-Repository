@@ -1,7 +1,6 @@
 package lojaaguiar.com.br.lojaaguiar.security;
 
 import lojaaguiar.com.br.lojaaguiar.model.User;
-import org.hibernate.annotations.DialectOverride;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -43,7 +42,7 @@ public class UserAuthenticated implements UserDetails {
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true
+        return true;
     }
 
     @Override
